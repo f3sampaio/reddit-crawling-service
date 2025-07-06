@@ -4,4 +4,5 @@ export interface SubredditInfo {
   description: string;
   members: number;
   online: number;
+  rules: string[];
 } 

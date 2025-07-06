@@ -11,8 +11,9 @@ coverage
 .cache
 dist
 build
-.DS_Store
 *.log
+.DS_Store
+Thumbs.db
 .vscode
 .idea
 *.swp

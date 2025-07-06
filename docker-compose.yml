@@ -10,6 +10,8 @@ services:
     environment:
       - NODE_ENV=development
       - PORT=3000
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
     volumes:
       - .:/app
       - /app/node_modules
@@ -22,6 +24,7 @@ services:
       start_period: 40s
     networks:
       - reddit-network
+    command: ["npm", "run", "dev:watch"]
 
   # Optional: Add Redis for caching if needed
   redis:

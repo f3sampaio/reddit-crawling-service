@@ -123,6 +123,54 @@ The Docker Compose setup includes Prometheus and Grafana for monitoring:
 - Prometheus: http://localhost:9090
 - Grafana: http://localhost:3001 (admin/admin)
 
+## 📚 API Documentation
+
+### Swagger UI
+Access the interactive API documentation at:
+```
+http://localhost:3000/api-docs
+```
+
+### Available Endpoints
+
+#### Health Check
+- **GET** `/health` - Service health status
+
+#### Subreddit Information
+- **GET** `/api/subreddit/{subreddit}` - Get subreddit information
+
+**Parameters:**
+- `subreddit` (string, required): The name of the subreddit (e.g., `programming`)
+
+**Example Request:**
+```sh
+curl http://localhost:3000/api/subreddit/programming
+```
+
+**Example Response:**
+```json
+{
+  "name": "programming",
+  "title": "r/programming",
+  "description": "Computer Programming",
+  "members": 6800000,
+  "online": 528,
+  "rules": [
+    "Be respectful",
+    "No spam",
+    "Follow Reddit's content policy",
+    "Use descriptive titles"
+  ]
+}
+```
+
+### Error Responses
+
+All endpoints may return the following error responses:
+
+- **400 Bad Request** - Invalid input parameters
+- **500 Internal Server Error** - Service error
+
 ## 🔧 Configuration
 
 ### Environment Variables

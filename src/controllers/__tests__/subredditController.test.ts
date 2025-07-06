@@ -1,5 +1,5 @@
 import { getSubredditInfoController } from '../subredditController';
-import * as service from '../../services/subredditService';
+import * as service from '../../services/SubredditService';
 import { Request, Response } from 'express';
 
 describe('getSubredditInfoController', () => {
@@ -15,11 +15,11 @@ describe('getSubredditInfoController', () => {
     const req = { body: { subreddit: 'test' } } as Request;
     const res = { json: jest.fn() } as any as Response;
     jest.spyOn(service, 'getSubredditInfoService').mockResolvedValue({
-      name: 'test', title: 'Test', description: 'desc', members: 1, online: 1
+      name: 'test', title: 'Test', description: 'desc', members: 1, online: 1, rules: []
     });
     await getSubredditInfoController(req, res);
     expect(res.json).toHaveBeenCalledWith({
-      name: 'test', title: 'Test', description: 'desc', members: 1, online: 1
+      name: 'test', title: 'Test', description: 'desc', members: 1, online: 1, rules: []
     });
   });
 }); 
